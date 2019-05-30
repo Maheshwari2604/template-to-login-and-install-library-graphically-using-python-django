@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Show and check:</h1>
+
+<form method="POST" action="{% url 'installation' %}">
+{% csrf_token %}
+  <input type="radio" name="installation" value="Docker"> Install Docker <br>
+  <input type="radio" name="installation" value="spark"> Install Spark <br> 
+  <input type="radio" name="installation" value="ML" checked> Install liberaries <br><br>
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

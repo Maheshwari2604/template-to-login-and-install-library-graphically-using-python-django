@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Adhocnw</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Adhoc-Nw</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'search_student' %}">Search Students</a></li>
+      <li><a href="#">About</a></li>
+      <li class="float-right"><a href="{% url 'logout' %}">Logout</a></li>
+    
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+    <h1>Account Settings</h1>
+      <hr>
+      <div class="col-md-12 personal-info">
+        <div class="alert alert-info alert-dismissable">
+          <a class="panel-close close" data-dismiss="alert">×</a> 
+          <i class="fa fa-coffee"></i>
+          This is an <strong>.alert</strong>. Use this to show important messages to the user.
+        </div>
+      </div>
+      <h3>Name of student: {{ details.name }}</h3>
+            <form method="POST" action="/updated_profile/">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label class="col-md-2 control-label">first-Name:</label>
+                    <div class="col-md-10">
+                    
+                      <input class="form-control" name="local_address" value="{{ details.first_name }}" type="text">
+                    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">last-Name:</label>
+                    <div class="col-md-10">
+                    
+                      <input class="form-control" name="local_address" value="{{ details.last_name }}" type="text">
+                    
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Contact no.:</label>
+                    <div class="col-md-10">
+                    
+                      <input class="form-control" name="local_address" value="{{ details.contact_number }}" type="number">
+                    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Email id:</label>
+                    <div class="col-md-10">
+                    
+                      <input class="form-control" name="local_address" value="{{ details.email }}" type="email">
+                    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">College:</label>
+                    <div class="col-md-10">
+                    
+                      <input class="form-control" name="local_address" value="{{ details.college }}" type="text">
+                    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Branch:</label>
+                    <div class="col-md-10">
+                    
+                      <input class="form-control" name="local_address" value="{{ details.branch }}" type="text">
+                    
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Cource:</label>
+                    <div class="col-md-10">
+                    
+                      <input class="form-control" name="local_address" value="{{ details.Cource }}" type="text">
+                    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Cource fee:</label>
+                    <div class="col-md-10">
+                    
+                      <input class="form-control" name="local_address" value="{{ details.Cource_fee }}" type="number">
+                    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Father's Name:</label>
+                    <div class="col-md-10">
+                    
+                      <input class="form-control" name="local_address" value="{{ details.father_name }}" type="text">
+                    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Father's contact no:</label>
+                    <div class="col-md-10">
+                    
+                      <input class="form-control" name="local_address" value="{{ details.father_contact_no }}" type="number">
+                    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Admission type:</label>
+                    <div class="col-md-10">
+                    
+                      <input class="form-control" name="local_address" value="{{ details.Addmission_type }}" type="text">
+                    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">training type::</label>
+                    <div class="col-md-10">
+                    
+                      <input class="form-control" name="local_address" value="{{ details.training_type }}" type="text">
+                    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Fee-paid:</label>
+                    <div class="col-md-10">
+                    
+                      <input class="form-control" name="local_address" value="{{ details.Fee_paid }}" type="number">
+                    
+                    </div>
+                </div>  
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Joining Time:</label>
+                    <div class="col-md-10">
+                    
+                      {{ details.timestamp }}
+                    
+                    </div>
+                </div>  
+                 
+                <div class="form-group">
+                    <label class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                      <input class="btn btn-primary" value="Save Changes" type="submit">
+                      <span></span>
+                      <input class="btn btn-default" value="Cancel" type="reset">
+                    </div>
+                  </div>
+   
+   
+   
+                
+            </form>  
+</div>
+<hr>
+
+
+
+</body>
+</html>
